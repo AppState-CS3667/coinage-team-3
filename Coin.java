@@ -27,4 +27,24 @@ public abstract class Coin {
         metallicComposition = this.metallicComposition;
         mintYear = this.mintYear;
     }
+
+    public double getValue(){
+        return value;
+    }
+
+    public String getCountry(){
+        return country;
+    }
+
+    public String getMotto(){
+        return motto;
+    }
+
+    public String metallicComposition(){
+        return metallicComposition;
+    }
+
+    public int mintYear(){
+        return mintYear;
+    }
 }
