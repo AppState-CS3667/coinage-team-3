@@ -1,5 +1,10 @@
 import java.util.Random;
-
+/*
+ * MintFactroy.java
+ * MintFactory abstraction
+ * @author Aria Mills
+ * @Version 1, fall 2021
+ */
 public abstract class MintFactory
 {
     //need only Value & Country Code
@@ -7,8 +12,17 @@ public abstract class MintFactory
     Random rand = new Random();
     
     //TODO Set seed for random using System time
-    
+ 
+ 
+ /*
+  * makeCoin abstract.
+  * Makes, and then returns a coin.
+  */   
     public abstract makeCoin();
+    /*
+     * Inspect function. 
+     * Returns a fail 1/12 times.
+     */
     public inspect()
     {
         int x = rand.nextInt(11)
@@ -22,6 +36,10 @@ public abstract class MintFactory
             }
         //fails 1/12
     }
+    /*
+     * Smoothing function.
+     * returns fail 1/1000 times
+     */
     public smoothing()
     {
         int x = rand.nextInt(999)
@@ -36,6 +54,10 @@ public abstract class MintFactory
 
         //fails 1/1000
     }
+    /*
+     * buffing function.
+     * Returns a fail 1/1000 times.
+     */
     public buffing()
     {
         int x = rand.nextInt(999)

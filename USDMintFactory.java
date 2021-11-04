@@ -1,7 +1,19 @@
 import java.util.Scanner;
 
+/*
+ * USDMintFactory.java
+ * USDMintFactory class
+ * @Author Aria Mils
+ * @Version 1, Fall 2021
+ */
+
 public class USDMintFactory extends MintFactory
 {
+    /*
+     * Main method. 
+     * Prepars coins for USD currency.
+     * Asks user for value of coin.
+     */
     public static void main(String [] args)
     {
         String Country = "USA";
@@ -19,12 +31,18 @@ public class USDMintFactory extends MintFactory
             denom = scan.nextDouble();
             if (denom != 0)
             {
-                makeCoin(denom);
+                Coin newCoin = makeCoin(denom);
+                //Do what with coin?
             }
         }
 
     }
  
+    /*
+     * makeCoin method
+     * Figures out what coin it should be based on value.
+     * Returns a coin.
+     */
     public void makeCoin(double Denom)
     {
         switch (Denom)
@@ -46,7 +64,8 @@ public class USDMintFactory extends MintFactory
         Class t = class.forName(coinType);
         Object o = t.newInstance();
         c = (coin) o;
-        
+        //Think I may be missing something? Calling construction on proper coin class?
+        return c;       
     }
 
 
