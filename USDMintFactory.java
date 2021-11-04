@@ -35,7 +35,7 @@ public class USDMintFactory extends MintFactory
                 //Do what with coin?
             }
         }
-
+        System.out.println("Exiting Factory...");
     }
  
     /*
