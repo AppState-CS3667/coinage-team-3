@@ -7,10 +7,7 @@ import java.util.Random;
  */
 public abstract class MintFactory
 {
-    //need only Value & Country Code
-    //Dollar, HalfDollar, Quater, Dime, Nickel, Penny
-    Random rand = new Random();
-    
+    Random rand = new Random();   
     //TODO Set seed for random using System time
  
  
@@ -35,6 +32,8 @@ public abstract class MintFactory
                 System.out.println("Inspection Passed...");
             }
         //fails 1/12
+        //Make into boolean that returns True/False, and use that to see if 
+        //the entire thing pass/fails
     }
     /*
      * Smoothing function.
