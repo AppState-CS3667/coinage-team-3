@@ -23,15 +23,17 @@ public class USDMintFactory extends MintFactory
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
-        + "Enter 0 to exit.")
-
+        + "Enter 0 to exit.");
         while (denom != 0)
         {
             System.out.println("Enter Denomiation of coin: ");
             denom = scan.nextDouble();
             if (denom != 0)
             {
-                Coin newCoin = makeCoin(denom);
+                c = makeCoin(denom);
+                buffing();
+                smoothing();
+                inspect();
                 //Do what with coin?
             }
         }
@@ -45,6 +47,36 @@ public class USDMintFactory extends MintFactory
      */
     public Coin makeCoin(double Denom)
     {
+
+        if (Denom == 1.00)
+        {
+            Coin coin = new Dollar(1.00, country);
+        }
+        else if (Denom == 0.50)
+        {
+            Coin coin = new HalfDollar(.50, country);
+        }
+        else if (Denom == .25)
+        {
+            Coin coin = new Quater(.25, country);
+        }
+        else if (Denom == .10)
+        {
+            Coin coin = new Dime(.10, country);
+        }
+        else if (Denom == .05)
+        {
+            Coin coin = new Nickle(.05, country);
+        }
+        else if (Denom == .01)
+        {
+            Coin coin = new Penny(.01, country);
+        }
+        else
+        {
+            Coin coin = new NullCoin();
+        }
+        /*
         switch (Denom)
         {
             case 1.00: Coin coin = new Dollar(1.00,country);
@@ -61,13 +93,6 @@ public class USDMintFactory extends MintFactory
                 break;
             default: Coin coin = new NullCoin();
         }
-        /*
-        Class t = class.forName(coinType);
-        Object o = t.newInstance();
-        c = (coin) o;
-        //Think I may be missing something? Calling construction on proper coin class?
-        return c;
-        //Change switch statement to just make, and the return, coins? 
         */
     }
 
