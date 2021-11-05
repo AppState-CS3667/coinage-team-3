@@ -16,7 +16,7 @@ public class USDMintFactory extends MintFactory
      */
     public static void main(String [] args)
     {
-        String Country = "USA";
+        String country = "USA";
         String coinType = "";
         double denom = 1.00;
         Coin c = null;
@@ -43,29 +43,32 @@ public class USDMintFactory extends MintFactory
      * Figures out what coin it should be based on value.
      * Returns a coin.
      */
-    public void makeCoin(double Denom)
+    public Coin makeCoin(double Denom)
     {
         switch (Denom)
         {
-            case 1.00: coinType = "Dollar";
+            case 1.00: Coin coin = new Dollar(1.00,country);
                 break;
-            case 0.50: coinType = "HalfDollar";
+            case 0.50: Coin coin = new HalfDollar(.50, country);
                 break;
-            case 0.25: coinType = "Quater";
+            case 0.25: Coin coin = new Quater(.25, country);
                 break; 
-            case 0.10: coinType = "Dime";
+            case 0.10: Coin coin = new Dime(.10, country);
                 break;
-            case 0.05: coinType = "Nickel";
+            case 0.05: Coin coin = new Nickle(.05, country);
                 break;
-            case 0.01: coinType = "Penny";
+            case 0.01: Coin coin = new Penny(.01, country);
                 break;
-            default: coinType =  "null";
+            default: Coin coin = new NullCoin();
         }
+        /*
         Class t = class.forName(coinType);
         Object o = t.newInstance();
         c = (coin) o;
         //Think I may be missing something? Calling construction on proper coin class?
-        return c;       
+        return c;
+        //Change switch statement to just make, and the return, coins? 
+        */
     }
 
 
