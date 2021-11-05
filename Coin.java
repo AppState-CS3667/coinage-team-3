@@ -33,4 +33,9 @@ public abstract class Coin {
         return country;
     }
 
+    private static class NullCoin extends Coin{
+        
+    }
+    public static Coin NULL = new NullCoin();
+
 }
