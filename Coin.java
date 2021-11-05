@@ -34,6 +34,9 @@ public abstract class Coin {
     }
 
     private static class NullCoin extends Coin{
+        NullCoin(){
+            super(null, null);
+        }
         
     }
     public static Coin NULL = new NullCoin();
