@@ -5,10 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 public class CoinTest {
     double expectedValue = 0;
     String expectedCountry = "TestingCoin";
+    Coin c;
 
     @BeforeEach
     public void init() {
-        Coin c = new DummyCoin();
+        c = new DummyCoin();
     }
 
     @Test
@@ -20,7 +21,7 @@ public class CoinTest {
 
     @Test
     public void testCountry(){
-        assertTrue((expectedCountry.equals(c.getCountry)), 
+        assertTrue((expectedCountry.equals(c.getCountry())), 
                    "Expected " + expectedCountry + " but got "
                    + c.getCountry());
     }
