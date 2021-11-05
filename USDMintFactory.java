@@ -23,7 +23,7 @@ public class USDMintFactory extends MintFactory
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
-        + "Enter 0 to exit.")
+        + "Enter 0 to exit.");
 
         while (denom != 0)
         {
