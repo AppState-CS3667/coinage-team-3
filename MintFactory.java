@@ -15,14 +15,14 @@ public abstract class MintFactory
   * makeCoin abstract.
   * Makes, and then returns a coin.
   */   
-    public abstract makeCoin();
+    public abstract Coin makeCoin();
     /*
      * Inspect function. 
      * Returns a fail 1/12 times.
      */
-    public inspect()
+    public void inspect()
     {
-        int x = rand.nextInt(11)
+        int x = rand.nextInt(11);
             if (x == 11)
             {
                 System.out.println("Inspection Failed...");
@@ -39,9 +39,9 @@ public abstract class MintFactory
      * Smoothing function.
      * returns fail 1/1000 times
      */
-    public smoothing()
+    public void smoothing()
     {
-        int x = rand.nextInt(999)
+        int x = rand.nextInt(999);
             if (x == 999)
             {
                 System.out.println("Smoothing Failed...");
@@ -57,9 +57,9 @@ public abstract class MintFactory
      * buffing function.
      * Returns a fail 1/1000 times.
      */
-    public buffing()
+    public void buffing()
     {
-        int x = rand.nextInt(999)
+        int x = rand.nextInt(999);
             if (x == 999)
             {
                 System.out.println("Buffing Failed...");
