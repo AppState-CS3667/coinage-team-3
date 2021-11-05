@@ -31,6 +31,9 @@ public class USDMintFactory extends MintFactory
             if (denom != 0)
             {
                 c = makeCoin(denom);
+                buffing();
+                smoothing();
+                inspect();
                 //Do what with coin?
             }
         }
