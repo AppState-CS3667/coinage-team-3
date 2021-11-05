@@ -20,12 +20,9 @@ public abstract class Coin {
  * @param metallicComposition is what metals the coin is made out of
  * @param mintYear is the year that the coin was minted
  */
-    public Coin(double value, String country, String motto, String metallicComposition, int mintYear){
+    public Coin(double value, String country){
         value = this.value;
         country = this.country;
-        motto = this.motto;
-        metallicComposition = this.metallicComposition;
-        mintYear = this.mintYear;
     }
 
     public double getValue(){
@@ -36,15 +33,4 @@ public abstract class Coin {
         return country;
     }
 
-    public String getMotto(){
-        return motto;
-    }
-
-    public String metallicComposition(){
-        return metallicComposition;
-    }
-
-    public int mintYear(){
-        return mintYear;
-    }
 }
