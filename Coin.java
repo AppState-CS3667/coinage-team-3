@@ -10,6 +10,7 @@ public abstract class Coin {
     protected String motto;
     protected String metallicComposition;
     protected int mintYear;
+    protected Composition comp;
 
 
 /**
@@ -23,6 +24,7 @@ public abstract class Coin {
     public Coin(double value, String country, Composition comp){
         value = this.value;
         country = this.country;
+        this.comp = comp;
     }
 
     public double getValue(){
