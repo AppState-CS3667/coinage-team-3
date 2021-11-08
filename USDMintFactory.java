@@ -16,9 +16,9 @@ public class USDMintFactory extends MintFactory
      */
     public static void main(String [] args)
     {
-        String coinType = "";
+        //String coinType = "";
         double denom = 1.00;
-        Coin c = null;
+        //Coin c = null;
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
@@ -29,10 +29,10 @@ public class USDMintFactory extends MintFactory
             denom = scan.nextDouble();
             if (denom != 0)
             {
-                c = makeCoin(denom);
-                buffing();
-                smoothing();
-                inspect();
+                Coin c = new makeCoin(denom);
+                c.buffing();
+                c.smoothing();
+                c.inspect();
                 //Do what with coin?
             }
         }
@@ -73,7 +73,8 @@ public class USDMintFactory extends MintFactory
         }
         else
         {
-            Coin coin = new NullCoin();
+            Coin coin = null; 
+            //Coin coin = new NullCoin();
         }
         /*
         switch (Denom)
