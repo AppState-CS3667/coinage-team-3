@@ -1,15 +1,6 @@
-package temp;
+
 
 import java.util.Scanner;
-
-import Coin;
-import Dime;
-import Dollar;
-import HalfDollar;
-import MintFactory;
-import Nickel;
-import Penny;
-import Quarter;
 
 /*
  * USDMintFactory.java

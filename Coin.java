@@ -21,9 +21,10 @@ public abstract class Coin {
  * @param metallicComposition is what metals the coin is made out of
  * @param mintYear is the year that the coin was minted
  */
+
     public Coin(double value, String country, Composition comp){
-        value = this.value;
-        country = this.country;
+        this.value = value;
+        this.country = country;
         this.comp = comp;
     }
 
