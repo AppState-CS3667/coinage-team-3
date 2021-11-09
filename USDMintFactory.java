@@ -31,9 +31,9 @@ public class USDMintFactory extends MintFactory
             if (denom != 0)
             {
                 Coin c = factory.makeCoin(denom);
-                c.buffing();
-                c.smoothing();
-                c.inspect();
+                factory.buffing();
+                factory.smoothing();
+                factory.inspect();
                 //Do what with coin?
             }
         }
@@ -42,7 +42,7 @@ public class USDMintFactory extends MintFactory
     
     /*
      * Constuctor method.
-     *
+     * 
      */
     public USDMintFactory()
     {
@@ -56,36 +56,37 @@ public class USDMintFactory extends MintFactory
      */
     public Coin makeCoin(double Denom)
     {
-
+        Coin coin;
         if (Denom == 1.00)
         {
-            Coin coin = new Dollar(1.00, "USA");
+            coin = new Dollar(1.00, "USA");
         }
         else if (Denom == 0.50)
         {
-            Coin coin = new HalfDollar(.50, "USA");
+            coin = new HalfDollar(.50, "USA");
         }
         else if (Denom == .25)
         {
-            Coin coin = new Quarter(.25, "USA");
+            coin = new Quarter(.25, "USA");
         }
         else if (Denom == .10)
         {
-            Coin coin = new Dime(.10, "USA");
+            coin = new Dime(.10, "USA");
         }
         else if (Denom == .05)
         {
-            Coin coin = new Nickel(.05, "USA");
+            coin = new Nickel(.05, "USA");
         }
         else if (Denom == .01)
         {
-            Coin coin = new Penny(.01, "USA");
+            coin = new Penny(.01, "USA");
         }
         else
         {
-            Coin coin = null; 
-            //Coin coin = new NullCoin();
+            coin = null; 
+            //coin = new NullCoin();
         }
+        return coin;
         /*
         switch (Denom)
         {
@@ -105,7 +106,5 @@ public class USDMintFactory extends MintFactory
         }
         */
     }
-
-
 
 }
