@@ -15,7 +15,7 @@ public abstract class MintFactory
   * makeCoin abstract.
   * Makes, and then returns a coin.
   */   
-    public abstract Coin makeCoin();
+    public abstract Coin makeCoin(double denom);
     /*
      * Inspect function. 
      * Returns a fail 1/12 times.
