@@ -7,9 +7,7 @@ import java.util.Random;
  */
 public abstract class MintFactory
 {
-    Random rand = new Random();   
-    //TODO Set seed for random using System time
- 
+    Random rand = new Random(System.currentTimeMillis());   
  
  /*
   * makeCoin abstract.
@@ -22,15 +20,15 @@ public abstract class MintFactory
      */
     public void inspect()
     {
-        int x = rand.nextInt(11);
-            if (x == 11)
-            {
-                System.out.println("Inspection Failed...");
-            }
-            else
-            {
-                System.out.println("Inspection Passed...");
-            }
+        int x = rand.nextInt(12);    
+        if (x == 11)
+        {
+            System.out.println("Inspection Failed...");
+        }
+        else
+        {
+            System.out.println("Inspection Passed...");
+        }
         //fails 1/12
         //Make into boolean that returns True/False, and use that to see if 
         //the entire thing pass/fails
@@ -41,7 +39,7 @@ public abstract class MintFactory
      */
     public void smoothing()
     {
-        int x = rand.nextInt(999);
+        int x = rand.nextInt(1000);
             if (x == 999)
             {
                 System.out.println("Smoothing Failed...");
@@ -59,7 +57,7 @@ public abstract class MintFactory
      */
     public void buffing()
     {
-        int x = rand.nextInt(999);
+        int x = rand.nextInt(1000);
             if (x == 999)
             {
                 System.out.println("Buffing Failed...");
