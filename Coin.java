@@ -34,10 +34,18 @@ public abstract class Coin {
     }
 
     private static class NullCoin extends Coin{
+        //I am not sure if the constructor should be null or not
         NullCoin(){
             super(null, null);
         }
-        
+        @Override
+        public double getValue(){
+            return null;
+        }
+
+        public String getCountry(){
+            return null;
+        }
     }
     public static Coin NULL = new NullCoin();
 
