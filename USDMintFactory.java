@@ -29,7 +29,7 @@ public class USDMintFactory extends MintFactory
             denom = scan.nextDouble();
             if (denom != 0)
             {
-                Coin c = makeCoin(denom);
+                Coin c = new makeCoin(denom);
                 c.buffing();
                 c.smoothing();
                 c.inspect();
