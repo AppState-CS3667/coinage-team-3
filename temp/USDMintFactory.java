@@ -1,4 +1,15 @@
+package temp;
+
 import java.util.Scanner;
+
+import Coin;
+import Dime;
+import Dollar;
+import HalfDollar;
+import MintFactory;
+import Nickel;
+import Penny;
+import Quarter;
 
 /*
  * USDMintFactory.java
@@ -16,10 +27,9 @@ public class USDMintFactory extends MintFactory
      */
     public static void main(String [] args)
     {
-        String country = "USA";
-        String coinType = "";
+        //String coinType = "";
         double denom = 1.00;
-        Coin c = null;
+        //Coin c = null;
         Scanner scan = new Scanner(System.in);
         
         System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
@@ -30,10 +40,10 @@ public class USDMintFactory extends MintFactory
             denom = scan.nextDouble();
             if (denom != 0)
             {
-                c = makeCoin(denom);
-                buffing();
-                smoothing();
-                inspect();
+                Coin c = new makeCoin(denom);
+                c.buffing();
+                c.smoothing();
+                c.inspect();
                 //Do what with coin?
             }
         }
@@ -50,31 +60,32 @@ public class USDMintFactory extends MintFactory
 
         if (Denom == 1.00)
         {
-            Coin coin = new Dollar(1.00, country);
+            Coin coin = new Dollar(1.00, "USA");
         }
         else if (Denom == 0.50)
         {
-            Coin coin = new HalfDollar(.50, country);
+            Coin coin = new HalfDollar(.50, "USA");
         }
         else if (Denom == .25)
         {
-            Coin coin = new Quater(.25, country);
+            Coin coin = new Quarter(.25, "USA");
         }
         else if (Denom == .10)
         {
-            Coin coin = new Dime(.10, country);
+            Coin coin = new Dime(.10, "USA");
         }
         else if (Denom == .05)
         {
-            Coin coin = new Nickle(.05, country);
+            Coin coin = new Nickel(.05, "USA");
         }
         else if (Denom == .01)
         {
-            Coin coin = new Penny(.01, country);
+            Coin coin = new Penny(.01, "USA");
         }
         else
         {
-            Coin coin = new NullCoin();
+            Coin coin = null; 
+            //Coin coin = new NullCoin();
         }
         /*
         switch (Denom)
