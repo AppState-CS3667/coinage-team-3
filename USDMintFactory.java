@@ -20,7 +20,8 @@ public class USDMintFactory extends MintFactory
         double denom = 1.00;
         //Coin c = null;
         Scanner scan = new Scanner(System.in);
-        
+        USDMintFactory factory = new USDMintFactory();
+
         System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
         + "Enter 0 to exit.");
         while (denom != 0)
@@ -29,7 +30,7 @@ public class USDMintFactory extends MintFactory
             denom = scan.nextDouble();
             if (denom != 0)
             {
-                Coin c = new makeCoin(denom);
+                Coin c = factory.makeCoin(denom);
                 c.buffing();
                 c.smoothing();
                 c.inspect();
@@ -38,7 +39,16 @@ public class USDMintFactory extends MintFactory
         }
         System.out.println("Exiting Factory...");
     }
- 
+    
+    /*
+     * Constuctor method.
+     *
+     */
+    public USDMintFactory()
+    {
+        
+    }
+     
     /*
      * makeCoin method
      * Figures out what coin it should be based on value.
