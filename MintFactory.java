@@ -57,7 +57,7 @@ public abstract class MintFactory {
             System.out.println("Buffing Failed...");
         }
         else {
-            System.out.println("buffing Passed...");
+            System.out.println("Buffing Passed...");
         }
 
         //fails 1/1000

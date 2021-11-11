@@ -1,4 +1,5 @@
 
+
 import java.util.Scanner;
 
 /**
@@ -98,7 +99,7 @@ public class USDMintFactory extends MintFactory {
             coin = new Penny(.01, "USA");
         }
         else {
-            coin = null; 
+            coin = Coin.NULL; 
             //coin = new NullCoin();
         }
         return coin;
