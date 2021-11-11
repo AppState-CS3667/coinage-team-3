@@ -33,9 +33,12 @@ public class USDMintFactory extends MintFactory
             if (denom != 0)
             {
                 Coin c = factory.makeCoin(denom);
+                System.out.println("Making a " + c.getClass().getName() + ".");
+                c.smelt();
                 factory.buffing();
                 factory.smoothing();
                 factory.inspect();
+                System.out.println();
                 //Do what with coin?
             }
         }

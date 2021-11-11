@@ -7,12 +7,11 @@ public class Demo{
                            "to create? Type \"USD\" or \"CAD\".");
         Scanner s = new Scanner(System.in);
         String country = s.nextLine();
-        MintFactory mf;
         if (country.equals("USD")){
-            mf = USDMintFactory.getInstance();
+            USDMintFactory.main(new String[1]);
         }
         else if (country.equals("CAD")){
-            mf = CADMintFactory.getInstance();
+            CADMintFactory.main(new String[1]);
         }
         else {
             System.out.println("Sorry, that input doesn't match.");

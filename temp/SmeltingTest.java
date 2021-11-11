@@ -1,5 +1,9 @@
+package temp;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
+import Dollar;
+import HalfDollar;
 
 public class SmeltingTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

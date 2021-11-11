@@ -34,9 +34,12 @@ public class CADMintFactory extends MintFactory
             if (denom != 0)
             {
                 Coin c = factory.makeCoin(denom);
+                System.out.println("Making a " + c.getClass().getName() + ".");
+                c.smelt();
                 factory.buffing();
                 factory.smoothing();
                 factory.inspect();
+                System.out.println();
                 //Do what with coin?
             }
         }
@@ -95,6 +98,7 @@ public class CADMintFactory extends MintFactory
         {
             coin = new CadNickel(.05, "CAD");
         }
+        else
         {
             coin = null; 
             //coin = new NullCoin();
