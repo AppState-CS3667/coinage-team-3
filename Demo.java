@@ -1,18 +1,33 @@
+import java.util.Scanner;
+
 /**
  * Demo.java
- * Demos Coins.
+ * Demos the Coin project.
+ *
  * @author Will O'Brien
- * @version Version 1, Fall 2021
+ * @version 11/10/21
  */
-public class Demo {
+public class Demo{
     /**
     * Main method for demo.
     * 
-    * @param args command line inputs
+    * @param args command line args
     */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println("This is the coin demo class.");
-        System.out.println("What country's coins would you like "
-                           + "to create?");
+        System.out.println("What country's coins would you like "+
+                           "to create? Type \"USD\" or \"CAD\".");
+        Scanner s = new Scanner(System.in);
+        String country = s.nextLine();
+        if (country.equals("USD")){
+            USDMintFactory.main(new String[1]);
+        }
+        else if (country.equals("CAD")){
+            CADMintFactory.main(new String[1]);
+        }
+        else {
+            System.out.println("Sorry, that input doesn't match.");
+        }
+        
     }
 }
