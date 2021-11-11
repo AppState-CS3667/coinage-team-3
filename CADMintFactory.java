@@ -2,15 +2,16 @@
 import java.util.Scanner;
 
 /*
- * USDMintFactory.java
- * USDMintFactory class
- * @Author Aria Mils
+ * CADMintFactory.java
+ * CADMintFactory class
+ * @Author Sophie Columbia
  * @Version 1, Fall 2021
  */
 
-public class USDMintFactory extends MintFactory
+public class CADMintFactory extends MintFactory
 {
-    private volatile static USDMintFactory uniqueInstance;
+    private volatile static CADMintFactory uniqueInstance;
+
     /*
      * Main method. 
      * Prepars coins for USD currency.
@@ -22,7 +23,7 @@ public class USDMintFactory extends MintFactory
         double denom = 1.00;
         //Coin c = null;
         Scanner scan = new Scanner(System.in);
-        USDMintFactory factory = new USDMintFactory();
+        CADMintFactory factory = new CADMintFactory();
 
         System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
         + "Enter 0 to exit.");
@@ -46,16 +47,16 @@ public class USDMintFactory extends MintFactory
      * Constuctor method.
      * 
      */
-    private USDMintFactory()
+    private CADMintFactory()
     {
         
     }
 
-    public static USDMintFactory getInstance() {
+    public static CADMintFactory getInstance() {
         if (uniqueInstance == null) {
-            synchronized (USDMintFactory.class) {
+            synchronized (CADMintFactory.class) {
                 if (uniqueInstance == null) {
-                    uniqueInstance = new USDMintFactory();
+                    uniqueInstance = new CADMintFactory();
                 }
             }
         }
@@ -70,54 +71,34 @@ public class USDMintFactory extends MintFactory
     public Coin makeCoin(double Denom)
     {
         Coin coin;
-        if (Denom == 1.00)
+        if (Denom == 2.00)
         {
-            coin = new Dollar(1.00, "USA");
+            coin = new Toonie(2.00, "CAD");
+        }
+        else if (Denom == 1.00)
+        {
+            coin = new Loonie(1.00, "CAD");
         }
         else if (Denom == 0.50)
         {
-            coin = new HalfDollar(.50, "USA");
+            coin = new FiftyCent(.50, "CAD");
         }
         else if (Denom == .25)
         {
-            coin = new Quarter(.25, "USA");
+            coin = new CadQuarter(.25, "CAD");
         }
         else if (Denom == .10)
         {
-            coin = new Dime(.10, "USA");
+            coin = new CadDime(.10, "CAD");
         }
         else if (Denom == .05)
         {
-            coin = new Nickel(.05, "USA");
+            coin = new CadNickel(.05, "CAD");
         }
-        else if (Denom == .01)
-        {
-            coin = new Penny(.01, "USA");
-        }
-        else
         {
             coin = null; 
             //coin = new NullCoin();
         }
         return coin;
-        /*
-        switch (Denom)
-        {
-            case 1.00: Coin coin = new Dollar(1.00,country);
-                break;
-            case 0.50: Coin coin = new HalfDollar(.50, country);
-                break;
-            case 0.25: Coin coin = new Quater(.25, country);
-                break; 
-            case 0.10: Coin coin = new Dime(.10, country);
-                break;
-            case 0.05: Coin coin = new Nickle(.05, country);
-                break;
-            case 0.01: Coin coin = new Penny(.01, country);
-                break;
-            default: Coin coin = new NullCoin();
-        }
-        */
     }
-
 }
