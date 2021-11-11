@@ -21,8 +21,8 @@ public abstract class Coin {
  * @param mintYear is the year that the coin was minted
  */
     public Coin(double value, String country){
-        value = this.value;
-        country = this.country;
+        this.value = value;
+        this.country = country;
     }
 
     public double getValue(){
