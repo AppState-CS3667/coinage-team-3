@@ -1,56 +1,64 @@
 
 import java.util.Scanner;
 
-/*
+/**
  * USDMintFactory.java
- * USDMintFactory class
- * @Author Aria Mils
- * @Version 1, Fall 2021
+ * USDMintFactory class.
+ * @author Aria Mils
+ * @version 1, Fall 2021
  */
 
-public class USDMintFactory extends MintFactory
-{
+public class USDMintFactory extends MintFactory {
     private volatile static USDMintFactory uniqueInstance;
-    /*
+    
+    /**
+     * Constuctor method.
+     * 
+     */
+    private USDMintFactory() {
+        
+    }
+
+    /**
      * Main method. 
      * Prepars coins for USD currency.
      * Asks user for value of coin.
+     *
+     * @param args command line arguments
      */
-    public static void main(String [] args)
-    {
+    public static void main(String [] args) {
         //String coinType = "";
         double denom = 1.00;
         //Coin c = null;
         Scanner scan = new Scanner(System.in);
         USDMintFactory factory = new USDMintFactory();
 
-        System.out.println("Enter Denominaction of coin in form 'x.xx' Otherwise, "
-        + "Enter 0 to exit.");
-        while (denom != 0)
-        {
+        System.out.println("Enter Denominaction of coin in form "
+            + "'x.xx' Otherwise, Enter 0 to exit.");
+        while (denom != 0) {
             System.out.println("Enter Denomiation of coin: ");
             denom = scan.nextDouble();
-            if (denom != 0)
-            {
+            if (denom != 0) {
                 Coin c = factory.makeCoin(denom);
+                System.out.println("Making a " + c.getClass().getName() + ".");
+                c.smelt();
                 factory.buffing();
                 factory.smoothing();
                 factory.inspect();
+                System.out.println();
                 //Do what with coin?
             }
         }
         System.out.println("Exiting Factory...");
     }
     
-    /*
-     * Constuctor method.
-     * 
-     */
-    private USDMintFactory()
-    {
-        
-    }
 
+    /**
+     * getInstance.java
+     * Gets instance of mint factory (singleton).
+     * 
+     * @return instance of factory
+     */
     public static USDMintFactory getInstance() {
         if (uniqueInstance == null) {
             synchronized (USDMintFactory.class) {
@@ -62,40 +70,34 @@ public class USDMintFactory extends MintFactory
         return uniqueInstance;
     }
      
-    /*
+    /**
      * makeCoin method
      * Figures out what coin it should be based on value.
-     * Returns a coin.
+     *
+     * @param denom denomination
+     * @return a coin.
      */
-    public Coin makeCoin(double Denom)
-    {
+    public Coin makeCoin(double denom) {
         Coin coin;
-        if (Denom == 1.00)
-        {
+        if (denom == 1.00) {
             coin = new Dollar(1.00, "USA");
         }
-        else if (Denom == 0.50)
-        {
+        else if (denom == 0.50) {
             coin = new HalfDollar(.50, "USA");
         }
-        else if (Denom == .25)
-        {
+        else if (denom == .25) {
             coin = new Quarter(.25, "USA");
         }
-        else if (Denom == .10)
-        {
+        else if (denom == .10) {
             coin = new Dime(.10, "USA");
         }
-        else if (Denom == .05)
-        {
+        else if (denom == .05) {
             coin = new Nickel(.05, "USA");
         }
-        else if (Denom == .01)
-        {
+        else if (denom == .01) {
             coin = new Penny(.01, "USA");
         }
-        else
-        {
+        else {
             coin = null; 
             //coin = new NullCoin();
         }

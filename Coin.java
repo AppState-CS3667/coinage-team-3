@@ -1,8 +1,8 @@
 /**
  * Coin.java
- * Coin abstraction
+ * Coin abstraction.
  * @author Jenna Pedersen
- * @Version Version 1, Fall 2021
+ * @version Version 1, Fall 2021
  */
 public abstract class Coin {
     protected double value;
@@ -13,29 +13,40 @@ public abstract class Coin {
     protected Composition comp;
 
 
-/**
- * Constructor
- * @param value is the value of the coin
- * @param country is the country of origin
- * @param motto is the motto on th coin
- * @param metallicComposition is what metals the coin is made out of
- * @param mintYear is the year that the coin was minted
- */
-    public Coin(double value, String country, Composition comp){
+    /**
+     * Constructor for Coin.
+     * @param value is the value of the coin
+     * @param country is the country of origin
+     * @param comp composition of coin
+    */
+    public Coin(double value, String country, Composition comp) {
         value = this.value;
         country = this.country;
         this.comp = comp;
     }
 
-    public double getValue(){
+    /**
+     * Getter for value field.
+     *  
+     * @return field value
+     */
+    public double getValue() {
         return value;
     }
 
-    public String getCountry(){
+    /**
+     * Getter for country field.
+     *  
+     * @return field country
+     */
+    public String getCountry() {
         return country;
     }
 
-    public void smelt(){
+    /**
+     * Smelts coin.
+     */
+    public void smelt() {
         comp.smelt();
     }
 
