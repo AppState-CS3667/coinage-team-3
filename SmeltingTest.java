@@ -1,38 +1,80 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 
 public class SmeltingTest {
-    //private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private PrintStream originalOut = System.out;
 
-    @Before
-    public void setUpStream(){
-        System.setOut(new PrintStream(originalOut));
+PrintStream originalOut;
+    ByteArrayOutputStream baos;
+    PrintStream newOut;
+
+    @BeforeEach
+    public void init(){
+        originalOut = System.out;
+        baos = new ByteArrayOutputStream();
+        newOut = new PrintStream(baos);
+        System.setOut(newOut);
     }
 
-    @After
-    public void restoreStreams() {
+    @AfterEach
+    public void cleanup(){
         System.setOut(originalOut);
     }
 
+/*
     @Test
-    public void smeltingCoin() {
-        fail("Created SmeltingTest");
-    }
+    public void testInspect(){
+        usd.inspect();
+
+        System.out.flush();
+        String actualOutput = baos.toString();
+        String expectedOutput0 = "Inspection Passed...\n";
+        String expectedOutput1 = "Inspection Failed...\n";
+        Boolean ans = actualOutput.equals(expectedOutput0) ||
+                      actualOutput.equals(expectedOutput1);
+        //originalOut.println(actualOutput);
+        assertTrue(ans);
+
+    }*/
 
     @Test
     public void smeltingDollar() {
         Dollar dollar = new Dollar(.25, "USA");
         dollar.smelt();
-        assertEquals(originalOut.toString(), "Smelting with a composition of:\n"
-                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni");
+        System.out.flush();
+        String actualOutput = baos.toString();
+        String expectedOutput0 = "Smelting with a composition of:\n"
+                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni";
+        Boolean ans = actualOutput.equals(expectedOutput0);
+        assertTrue(ans);
     }
 
     @Test
     public void smeltingHalfDollar() {
         HalfDollar dollar = new HalfDollar(.25, "USA");
         dollar.smelt();
-        assertEquals(originalOut.toString(), "Smelting with a composition of:\n"
-                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni");
+        System.out.flush();
+        String actualOutput = baos.toString();
+        String expectedOutput0 = "Smelting with a composition of:\n"
+                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni";
+        Boolean ans = actualOutput.equals(expectedOutput0);
+        assertTrue(ans);
+    }
+
+    @Test
+    public void Dime() {
+        Dime dollar = new Dime(.1, "USA");
+        dollar.smelt();
+        System.out.flush();
+        String actualOutput = baos.toString();
+        String expectedOutput0 = "Smelting with a composition of:\n"
+                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni";
+        Boolean ans = actualOutput.equals(expectedOutput0);
+        assertTrue(ans);
     }
 }
