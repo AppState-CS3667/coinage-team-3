@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class CADMintFactory extends MintFactory
 {
+    private volatile static CADMintFactory uniqueInstance;
+
     /*
      * Main method. 
      * Prepars coins for USD currency.
@@ -45,9 +47,20 @@ public class CADMintFactory extends MintFactory
      * Constuctor method.
      * 
      */
-    public CADMintFactory()
+    private CADMintFactory()
     {
         
+    }
+
+    public static CADMintFactory getInstance() {
+        if (uniqueInstance == null) {
+            synchronized (CADMintFactory.class) {
+                if (uniqueInstance == null) {
+                    uniqueInstance = new CADMintFactory();
+                }
+            }
+        }
+        return uniqueInstance;
     }
      
     /*
