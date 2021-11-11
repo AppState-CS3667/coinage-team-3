@@ -43,3 +43,31 @@ clean:
 
 test: $(JUNIT5_JAR)
 	java -cp .:$(JUNIT5_JAR) $(JUNIT5_RUNNER) --scan-class-path 
+
+demo: Demo.java
+	java Demo
+
+check: mystyle.xml
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Coin.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml CadDime.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml CADMintFactory.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml CadNickel.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml CadQuarter.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Composition.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Cu25.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Cu75.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Cu885.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Cu9167.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Demo.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Dime.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Dollar.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml FiftyCent.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml HalfDollar.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Loonie.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml MintFactory.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Nickel.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Penny.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Quarter.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml Toonie.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml UnknownComp.java
+	java $(CKSTYLE_COMMAND) -c ./mystyle.xml USDMintFactory.java
