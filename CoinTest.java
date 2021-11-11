@@ -28,7 +28,7 @@ public class CoinTest {
 
     public class DummyCoin extends Coin{
         public DummyCoin(){
-            super(0, "TestingCoin");
+            super(0, "TestingCoin", new UnknownComp());
         }
     }
 }

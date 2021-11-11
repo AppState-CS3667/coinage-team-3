@@ -1,8 +1,8 @@
 /**
  * Coin.java
- * Coin abstraction
+ * Coin abstraction.
  * @author Jenna Pedersen
- * @Version Version 1, Fall 2021
+ * @version Version 1, Fall 2021
  */
 public abstract class Coin {
     protected double value;
@@ -13,6 +13,7 @@ public abstract class Coin {
     protected Composition comp;
 
 
+<<<<<<< HEAD
 /**
  * Constructor
  * @param value is the value of the coin
@@ -28,15 +29,28 @@ public abstract class Coin {
         this.comp = comp;
     }
 
-    public double getValue(){
+    /**
+     * Getter for value field.
+     *  
+     * @return field value
+     */
+    public double getValue() {
         return value;
     }
 
-    public String getCountry(){
+    /**
+     * Getter for country field.
+     *  
+     * @return field country
+     */
+    public String getCountry() {
         return country;
     }
 
-    public void smelt(){
+    /**
+     * Smelts coin.
+     */
+    public void smelt() {
         comp.smelt();
     }
 
