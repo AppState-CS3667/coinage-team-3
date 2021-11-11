@@ -2,20 +2,19 @@
 import java.util.Scanner;
 
 /**
- * USDMintFactory.java
- * USDMintFactory class.
- * @author Aria Mils
+ * CADMintFactory.java
+ * CADMintFactory class.
+ * @author Sophie Columbia
  * @version 1, Fall 2021
  */
+public class CADMintFactory extends MintFactory {
+    private volatile static CADMintFactory uniqueInstance;
 
-public class USDMintFactory extends MintFactory {
-    private volatile static USDMintFactory uniqueInstance;
-    
     /**
      * Constuctor method.
      * 
      */
-    private USDMintFactory() {
+    private CADMintFactory() {
         
     }
 
@@ -24,17 +23,17 @@ public class USDMintFactory extends MintFactory {
      * Prepars coins for USD currency.
      * Asks user for value of coin.
      *
-     * @param args command line arguments
+     * @param args command line input
      */
     public static void main(String [] args) {
         //String coinType = "";
         double denom = 1.00;
         //Coin c = null;
         Scanner scan = new Scanner(System.in);
-        USDMintFactory factory = new USDMintFactory();
+        CADMintFactory factory = new CADMintFactory();
 
-        System.out.println("Enter Denominaction of coin in form "
-            + "'x.xx' Otherwise, Enter 0 to exit.");
+        System.out.println("Enter Denominaction of coin in form"
+            + " 'x.xx' Otherwise, Enter 0 to exit.");
         while (denom != 0) {
             System.out.println("Enter Denomiation of coin: ");
             denom = scan.nextDouble();
@@ -51,7 +50,6 @@ public class USDMintFactory extends MintFactory {
         }
         System.out.println("Exiting Factory...");
     }
-    
 
     /**
      * getInstance.java
@@ -59,11 +57,11 @@ public class USDMintFactory extends MintFactory {
      * 
      * @return instance of factory
      */
-    public static USDMintFactory getInstance() {
+    public static CADMintFactory getInstance() {
         if (uniqueInstance == null) {
-            synchronized (USDMintFactory.class) {
+            synchronized (CADMintFactory.class) {
                 if (uniqueInstance == null) {
-                    uniqueInstance = new USDMintFactory();
+                    uniqueInstance = new CADMintFactory();
                 }
             }
         }
@@ -71,55 +69,36 @@ public class USDMintFactory extends MintFactory {
     }
      
     /**
-     * makeCoin method
+     * makeCoin.java
      * Figures out what coin it should be based on value.
-     *
-     * @param denom denomination
-     * @return a coin.
+     * 
+     * @param denom coin value
+     * @return coin made
      */
     public Coin makeCoin(double denom) {
         Coin coin;
-        if (denom == 1.00) {
-            coin = new Dollar(1.00, "USA");
+        if (denom == 2.00) {
+            coin = new Toonie(2.00, "CAD");
+        }
+        else if (denom == 1.00) {
+            coin = new Loonie(1.00, "CAD");
         }
         else if (denom == 0.50) {
-            coin = new HalfDollar(.50, "USA");
+            coin = new FiftyCent(.50, "CAD");
         }
         else if (denom == .25) {
-            coin = new Quarter(.25, "USA");
+            coin = new CadQuarter(.25, "CAD");
         }
         else if (denom == .10) {
-            coin = new Dime(.10, "USA");
+            coin = new CadDime(.10, "CAD");
         }
         else if (denom == .05) {
-            coin = new Nickel(.05, "USA");
-        }
-        else if (denom == .01) {
-            coin = new Penny(.01, "USA");
+            coin = new CadNickel(.05, "CAD");
         }
         else {
             coin = null; 
             //coin = new NullCoin();
         }
         return coin;
-        /*
-        switch (Denom)
-        {
-            case 1.00: Coin coin = new Dollar(1.00,country);
-                break;
-            case 0.50: Coin coin = new HalfDollar(.50, country);
-                break;
-            case 0.25: Coin coin = new Quater(.25, country);
-                break; 
-            case 0.10: Coin coin = new Dime(.10, country);
-                break;
-            case 0.05: Coin coin = new Nickle(.05, country);
-                break;
-            case 0.01: Coin coin = new Penny(.01, country);
-                break;
-            default: Coin coin = new NullCoin();
-        }
-        */
     }
-
 }
