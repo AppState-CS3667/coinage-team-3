@@ -13,17 +13,14 @@ public abstract class Coin {
     protected Composition comp;
 
 
-<<<<<<< HEAD
 /**
- * Constructor
+ * Constructor for the Coin class.
  * @param value is the value of the coin
  * @param country is the country of origin
- * @param motto is the motto on th coin
- * @param metallicComposition is what metals the coin is made out of
- * @param mintYear is the year that the coin was minted
+ * @param comp is the metallic composition of the Coin.
  */
 
-    public Coin(double value, String country, Composition comp){
+    public Coin(double value, String country, Composition comp) {
         this.value = value;
         this.country = country;
         this.comp = comp;
@@ -54,18 +51,15 @@ public abstract class Coin {
         comp.smelt();
     }
 
-    private static class NullCoin extends Coin{
-        //I am not sure if the constructor should be null or not
-        NullCoin(){
+    /**
+     * NullCoin class to implement null pattern.
+     */
+    private static class NullCoin extends Coin {
+        /**
+         * Constructor for the NullCoin.
+         */
+        NullCoin() {
             super(0, null, null);
-        }
-        @Override
-        public double getValue(){
-            return null;
-        }
-
-        public String getCountry(){
-            return null;
         }
     }
     public static Coin NULL = new NullCoin();

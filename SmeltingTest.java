@@ -1,4 +1,4 @@
-package temp;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
@@ -7,9 +7,6 @@ import java.io.PrintStream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
-
-import Dollar;
-import HalfDollar;
 
 public class SmeltingTest {
 
@@ -53,7 +50,7 @@ PrintStream originalOut;
         System.out.flush();
         String actualOutput = baos.toString();
         String expectedOutput0 = "Smelting with a composition of:\n"
-                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni";
+                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni\n";
         Boolean ans = actualOutput.equals(expectedOutput0);
         assertTrue(ans);
     }
@@ -65,7 +62,7 @@ PrintStream originalOut;
         System.out.flush();
         String actualOutput = baos.toString();
         String expectedOutput0 = "Smelting with a composition of:\n"
-                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni";
+                                 + "91.67% Cu\n8.33% Ni\n";
         Boolean ans = actualOutput.equals(expectedOutput0);
         assertTrue(ans);
     }
@@ -77,7 +74,7 @@ PrintStream originalOut;
         System.out.flush();
         String actualOutput = baos.toString();
         String expectedOutput0 = "Smelting with a composition of:\n"
-                           + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni";
+                                 + "91.67% Cu\n8.33% Ni\n";
         Boolean ans = actualOutput.equals(expectedOutput0);
         assertTrue(ans);
     }
