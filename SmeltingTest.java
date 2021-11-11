@@ -2,12 +2,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class SmeltingTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
+    //private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private PrintStream originalOut = System.out;
 
     @Before
     public void setUpStream(){
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(originalOut));
     }
 
     @After
@@ -24,7 +24,7 @@ public class SmeltingTest {
     public void smeltingDollar() {
         Dollar dollar = new Dollar(.25, "USA");
         dollar.smelt();
-        assertEquals(outContent.toString(), "Smelting with a composition of:\n"
+        assertEquals(originalOut.toString(), "Smelting with a composition of:\n"
                            + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni");
     }
 
@@ -32,7 +32,7 @@ public class SmeltingTest {
     public void smeltingHalfDollar() {
         HalfDollar dollar = new HalfDollar(.25, "USA");
         dollar.smelt();
-        assertEquals(outContent.toString(), "Smelting with a composition of:\n"
+        assertEquals(originalOut.toString(), "Smelting with a composition of:\n"
                            + "88.5% Cu\n6% Zi\n3.5% Mn\n2% Ni");
     }
 }
